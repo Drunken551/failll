@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThreeBle</title>
+    <link rel="icon" type="image/x-icon" href="image/logo .png">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #35424a;
+            color: #ffffff;
+            padding: 20px 0;
+            border-bottom: #e8491d 3px solid;
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header a {
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header #branding {
+            display: flex;
+            align-items: center;
+        }
+        header #branding h1 {
+            margin: 0;
+        }
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+        header nav li {
+            margin-left: 20px;
+        }
+        header nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        header .highlight{
+            color: #e8491d;
+            font-weight: bold;
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        nav a:hover {
+            color: #e8491d;
+            font-weight: bold;
+        }
+        .section {
+            padding: 20px 0;
+        }
+        .product-gallery {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+        .product-item {
+            text-align: center;
+            width: 30%;
+        }
+        .product-item img {
+            width: 80%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .product-item p {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .showcase {
+            min-height: 400px;
+            background: url('/api/placeholder/1200/400') no-repeat 0 -150px;
+            text-align: center;
+            color: #161414;
+            padding: 50px 0;
+        }
+        .showcase h1 {
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+        .showcase p {
+            font-size: 20px;
+        }
+        .button {
+            display: inline-block;
+            background: #e8491d;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        #customizer {
+            padding: 15px;
+            background: #35424a;
+            color: #ffffff;
+            margin-top: 10px;
+        }
+        .about-us-content, .contact-info {
+            margin-top: 20px;
+        }
+        .about-us {
+            background-color: #f9f9f9;
+            padding: 60px 0;
+        }
+        .about-us .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .about-us-content {
+            flex-basis: 60%;
+            padding-right: 40px;
+        }
+        .about-us-image {
+            flex-basis: 35%;
+            text-align: center;
+        }
+        .about-us-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .about-us h2 {
+            color: #35424a;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .about-us p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        .highlight-box {
+            background-color: #e8491d;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .highlight-box h3 {
+            margin-top: 0;
+        }
+        @media (max-width: 768px) {
+            .about-us .container {
+                flex-direction: column;
+            }
+            .about-us-content, .about-us-image {
+                flex-basis: 100%;
+                padding-right: 0;
+            }
+            .about-us-image {
+                margin-top: 30px;
+            }
+        }
+        .contact-section {
+            background-color: #35424a;
+            color: #ffffff;
+            padding: 60px 0;
+        }
+        .contact-section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .contact-item {
+            text-align: center;
+            margin-bottom: 30px;
+            flex-basis: 30%;
+        }
+        .contact-item i {
+            font-size: 3em;
+            margin-bottom: 15px;
+            color: #e8491d;
+        }
+        .contact-item a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+        .contact-item a:hover {
+            color: #e8491d;
+        }
+        .contact-item p {
+            margin-top: 10px;
+            font-size: 1em;
+        }
+        @media (max-width: 768px) {
+            .contact-item {
+                flex-basis: 100%;
+            }
+        }
+        #page-content > div {
+            display: none;
+        }
+        #page-content > div.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">ThreeBle</span> Shoulder bag</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="showPage('home')">Beranda</a></li>
+                    <li><a href="#" onclick="showPage('about')">Tentang Kami</a></li>
+                    <li><a href="#" onclick="showPage('contact')">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="page-content">
+        <div id="home" class="active">
+            <section class="section showcase">
+                <div class="container">
+                    <div class="product-gallery">
+                        <div class="product-item">
+                            <img src="image/WhatsApp%20Image%202024-10-05%20at%2012.28.08_c98ed950.jpg" alt="Shoulder Bag Classic">
+                            <p>Shoulder Bag Classic</p>
+                        </div>
+                        <div class="product-item">
+                            <img src="image/WhatsApp%20Image%202024-10-05%20at%2012.28.09_cfe894bc.jpg" alt="Tote Bag Artsy">
+                            <p>Tote Bag Artsy</p>
+                        </div>
+                        <div class="product-item">
+                            <img src="image/WhatsApp%20Image%202024-10-05%20at%2012.28.11_309c048d.jpg" alt="Clutch Elegant">
+                            <p>Clutch Elegant</p>
+                        </div>
+                    </div>
+                    <h2>Desain Tas Anda Sendiri</h2>
+                    <p>Ekspresikan kreativitas Anda melalui tas unik yang Anda desain</p>
+                    <a href="#customizer" class="button">Mulai Desain</a>
+                </div>
+            </section>
+            <section id="customizer" class="section container">
+                <h2>Kustomisasi Tas Anda</h2>
+                <p>Gunakan alat kustomisasi kami untuk membuat desain tas yang sesuai dengan gaya Anda. Pilih warna, motif, dan tambahkan sentuhan personal Anda.</p>
+                <div id="file-upload">
+                    <p>Unggah Karya Seni Anda:</p>
+                    <p>Format yang didukung: JPG, PNG, GIF (Max. 5MB)</p>
+                    <input type="file" accept="image/*" onchange="previewImage(event)">
+                </div>
+                <img id="preview" src="" alt="Preview karya seni Anda" style="max-width: 300px; display: none;">
+                <div id="order-button">
+                    <a href="#" class="button">Pesan Sekarang</a>
+                </div>
+            </section>
+        </div>
+
+        <div id="about">
+            <section class="section about-us">
+                <div class="container">
+                    <div class="about-us-content">
+                        <h2>Tentang ThreeBle</h2>
+                        <p><strong>ThreeBle</strong> adalah pelopor inovasi dalam industri fashion berkelanjutan. Kami berfokus pada pengolahan limbah fashion menjadi produk shoulder bag yang inovatif dan ramah lingkungan, didukung oleh teknologi digital.</p>
+                        <p>Misi kami adalah mengurangi dampak negatif industri fashion terhadap lingkungan sambil menciptakan produk berkualitas tinggi yang memenuhi kebutuhan gaya hidup modern.</p>
+                        <div class="highlight-box">
+                            <h3>Komitmen Kami:</h3>
+                            <ul>
+                                <li>Menggunakan bahan daur ulang dari limbah fashion</li>
+                                <li>Menerapkan prinsip 3R: Reuse, Reduce, Recycle</li>
+                                <li>Menciptakan desain timeless dengan kualitas terbaik</li>
+                                <li>Memanfaatkan teknologi digital untuk kustomisasi dan pemasaran</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="about-us-image">
+                        <img src="image/about%20us.jpg" alt="ThreeBle Sustainable Fashion" style="max-width: 100%;">
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="contact">
+            <section class="section contact-section">
+                <div class="container">
+                    <h2>Hubungi Kami</h2>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <h3><a href="https://www.instagram.com/thre.eble" target="_blank">@thre.eble</a></h3>
+                            <p>Ikuti kami di Instagram</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3><a href="https://wa.me/qr/XOB2SW4RPZYKC1" target="_blank">+62 812-2268-3368</a></h3>
+                            <p>Hubungi kami via WhatsApp</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3><a href="https://maps.app.goo.gl/jTY4UaTpNex8n8J77" target="_blank">Lokasi Kami</a></h3>
+                            <p>Jl. Gegerkalong Girang, No 9\171b, Kec. Sukasari Kota Bandung, Jawa Barat</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>ThreeBle © ArtBag</p>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('#page-content > div').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        function previewImage(event) {
+            var reader = new FileReader();
+            reader.onload = function(){
+                var output = document.getElementById('preview');
+                output.src = reader.result;
+                output.style.display = 'block';
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+</body>
+</html>
